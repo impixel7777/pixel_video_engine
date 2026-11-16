@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/audio_direction.json",
+  "title": "PIXEL AI audio direction",
+  "description": "Returned by DeepSeek for the audio director stage. Describes music, sound effects, pauses and mixing. No audio is generated here.",
+  "type": "object",
+  "required": ["music", "sfx", "mix"],
+  "additionalProperties": false,
+  "properties": {
+    "music": {
+      "type": "object",
+      "required": ["style", "overall_energy_curve", "segments"],
+      "additionalProperties": false,
+      "properties": {
+        "style": {"type": "string", "minLength": 3},
+        "overall_energy_curve": {"type": "string"},
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["segment_id", "start_scene", "intensity", "mood", "description"],
+            "additionalProperties": false,
+            "properties": {
+              "segment_id": {"type": "string"},
+              "start_scene": {"type": "string"},
+              "end_scene": {"type": "string"},
+              "intensity": {"type": "number", "minimum": 0, "maximum": 1},
+              "mood": {"type": "string"},
+              "description": {"type": "string"},
+              "transition": {"type": "string"},
+              "fade_in_seconds": {"type": "number", "minimum": 0, "maximum": 10},
+              "fade_out_seconds": {"type": "number", "minimum": 0, "maximum": 10}
+            }
+          }
+        }
+      }
+    },
+    "sfx": {
+      "type": "array",
+      "maxItems": 24,
+      "items": {
+        "type": "object",
+        "required": ["cue_id", "anchor_scene", "description", "timing", "gain_db"],
+        "additionalProperties": false,
+        "properties": {
+          "cue_id": {"type": "string"},
+          "anchor_scene": {"type": "string"},
+          "anchor_text": {"type": "string"},
+          "description": {"type": "string"},
+          "timing": {"type": "string"},
+          "gain_db": {"type": "number", "minimum": -40, "maximum": 0},
+          "duration_seconds": {"type": "number", "minimum": 0.1, "maximum": 10},
+          "relevance": {"type": "string"}
+        }
+      }
+    },
+    "pauses": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["after_scene", "seconds"],
+        "additionalProperties": false,
+        "properties": {
+          "after_scene": {"type": "string"},
+          "seconds": {"type": "number", "minimum": 0, "maximum": 4},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "mix": {
+      "type": "object",
+      "required": ["narration_priority"],
+      "additionalProperties": false,
+      "properties": {
+        "narration_priority": {"type": "string"},
+        "music_bed_db": {"type": "number", "minimum": -40, "maximum": 0},
+        "duck_under_narration_db": {"type": "number", "minimum": -40, "maximum": 0},
+        "true_peak_db": {"type": "number", "minimum": -10, "maximum": 0}
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/quality_report.json",
+  "title": "PIXEL AI Quality Report",
+  "description": "Deterministic validation results plus the optional AI editorial review.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "project", "overall_status", "categories", "issues"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string"},
+    "project": {
+      "type": "object",
+      "required": ["profile_id", "topic", "slug"],
+      "additionalProperties": true,
+      "properties": {
+        "profile_id": {"type": "string"},
+        "topic": {"type": "string"},
+        "slug": {"type": "string"}
+      }
+    },
+    "overall_status": {"enum": ["pass", "warn", "fail"]},
+    "summary": {"type": "string"},
+    "categories": {
+      "type": "object",
+      "required": ["research", "long_script", "shorts", "visuals", "audio", "files"],
+      "additionalProperties": true,
+      "properties": {
+        "research": {"$ref": "#/$defs/category"},
+        "long_script": {"$ref": "#/$defs/category"},
+        "shorts": {"$ref": "#/$defs/category"},
+        "visuals": {"$ref": "#/$defs/category"},
+        "audio": {"$ref": "#/$defs/category"},
+        "files": {"$ref": "#/$defs/category"}
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "severity", "message"],
+        "additionalProperties": true,
+        "properties": {
+          "id": {"type": "string"},
+          "category": {"type": "string"},
+          "severity": {"enum": ["error", "warning", "info"]},
+          "message": {"type": "string"},
+          "location": {"type": "string"},
+          "auto_fixable": {"type": "boolean"}
+        }
+      }
+    },
+    "ai_review": {"type": ["object", "null"]},
+    "metrics": {"type": "object"}
+  },
+  "$defs": {
+    "category": {
+      "type": "object",
+      "required": ["status", "checks"],
+      "additionalProperties": true,
+      "properties": {
+        "status": {"enum": ["pass", "warn", "fail", "skipped"]},
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "status", "detail"],
+            "additionalProperties": true,
+            "properties": {
+              "name": {"type": "string"},
+              "status": {"enum": ["pass", "warn", "fail", "skipped"]},
+              "detail": {"type": "string"},
+              "value": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

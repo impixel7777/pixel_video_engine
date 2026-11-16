@@ -1,0 +1,80 @@
+{
+  "channel": {
+    "id": "pixel_tech",
+    "name": "Pixel Tech",
+    "category": "Technology",
+    "language": "English",
+    "description": "Technology, AI, software, and emerging innovations explained for curious generalists.",
+    "tagline": "Technology, explained like a human is watching."
+  },
+  "audience": {
+    "type": "General audience",
+    "knowledge_level": "Beginner to intermediate",
+    "age_group": "General",
+    "what_they_know": "Uses apps daily, follows tech news casually, has heard the headlines but not the mechanism.",
+    "what_they_want": "Clear mental models they can repeat to a friend, and a reason to care."
+  },
+  "writing": {
+    "tone": "Engaging and conversational",
+    "style": "Storytelling and educational",
+    "complexity": "Easy to understand",
+    "humor": "Light",
+    "person": "second person",
+    "avoid": [
+      "Unnecessary jargon",
+      "Repetitive explanations",
+      "Unsupported claims",
+      "Empty clickbait",
+      "Hedging every sentence",
+      "Listing statistics without explaining why they matter"
+    ],
+    "prefer": [
+      "Concrete analogies drawn from everyday life",
+      "Short sentences followed by one longer sentence",
+      "Naming real companies, people and products"
+    ]
+  },
+  "video": {
+    "long_duration_minutes": 10,
+    "shorts_count": 6,
+    "short_duration_seconds": 45,
+    "aspect_ratio_long": "16:9",
+    "aspect_ratio_short": "9:16",
+    "hook_style": "Open on a vivid scenario or counter-intuitive fact",
+    "ending_style": "Return to the opening image and pose a genuine question"
+  },
+  "visuals": {
+    "style": "Cinematic futuristic",
+    "primary_colors": ["Purple", "Blue"],
+    "visual_preference": "Realistic and high quality",
+    "motion_style": "Dynamic but controlled",
+    "lighting": "Volumetric light with soft bloom, deep shadows",
+    "texture": "Subtle film grain, shallow depth of field",
+    "avoid_visuals": [
+      "Low-resolution or obviously generated artefacts",
+      "Illegible pseudo-text on screens",
+      "Generic corporate stock handshake imagery"
+    ]
+  },
+  "audio": {
+    "music_style": "Electronic ambient",
+    "sound_effect_style": "Subtle digital effects",
+    "mixing_style": "Clear narration with balanced background audio",
+    "energy": "Builds from calm to confident, never aggressive",
+    "notes": "Narration always stays on top. Music sits far below speech."
+  },
+  "topics": {
+    "primary": [
+      "Artificial intelligence",
+      "Computing hardware",
+      "Software ecosystems",
+      "Space technology",
+      "Cybersecurity"
+    ],
+    "avoid": [
+      "Political commentary",
+      "Gore",
+      "Unverified rumour as fact"
+    ]
+  }
+}

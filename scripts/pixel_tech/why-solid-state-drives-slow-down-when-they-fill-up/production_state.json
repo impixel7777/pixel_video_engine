@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "pixel_tech",
+  "topic": "Why solid-state drives slow down when they fill up",
+  "slug": "why-solid-state-drives-slow-down-when-they-fill-up",
+  "created_at": "2026-11-16T06:41:23+00:00",
+  "status": "running",
+  "stages": {
+    "connection": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": "2026-11-16T06:41:23+00:00",
+      "finished_at": "2026-11-16T06:41:23+00:00",
+      "duration_seconds": 0.01,
+      "error": null,
+      "artifacts": [],
+      "notes": ""
+    },
+    "topic": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": "2026-11-16T06:41:23+00:00",
+      "finished_at": "2026-11-16T06:54:51+00:00",
+      "duration_seconds": 808.37,
+      "error": null,
+      "artifacts": [
+        "ContentBrief.json"
+      ],
+      "notes": ""
+    },
+    "research": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": "2026-11-16T06:54:51+00:00",
+      "finished_at": "2026-11-16T06:59:04+00:00",
+      "duration_seconds": 252.94,
+      "error": null,
+      "artifacts": [
+        "Research.json"
+      ],
+      "notes": ""
+    },
+    "plan": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": "2026-11-16T06:59:04+00:00",
+      "finished_at": "2026-11-16T07:11:34+00:00",
+      "duration_seconds": 749.24,
+      "error": null,
+      "artifacts": [
+        "Outline.json"
+      ],
+      "notes": ""
+    },
+    "script": {
+      "status": "running",
+      "attempts": 1,
+      "started_at": "2026-11-16T07:11:34+00:00",
+      "finished_at": null,
+      "duration_seconds": 0.0,
+      "error": null,
+      "artifacts": [],
+      "notes": ""
+    }
+  },
+  "approval": {
+    "script_approved": false,
+    "approved_at": null,
+    "mode": null
+  },
+  "artifacts": {},
+  "stage_order": [
+    "connection",
+    "topic",
+    "research",
+    "plan",
+    "script",
+    "shorts",
+    "visuals",
+    "audio",
+    "quality",
+    "save",
+    "validate",
+    "assets",
+    "video"
+  ],
+  "updated_at": "2026-11-16T07:11:34+00:00",
+  "profile_fingerprint": "0958cb637a8785ab"
+}

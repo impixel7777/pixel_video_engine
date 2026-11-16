@@ -1,0 +1,78 @@
+{
+  "channel": {
+    "id": "pixel_history",
+    "name": "Pixel History",
+    "category": "History",
+    "language": "English",
+    "description": "History documentary storytelling: how societies, empires and ideas actually unfolded.",
+    "tagline": "History, told like it actually happened."
+  },
+  "audience": {
+    "type": "Curious general audience",
+    "knowledge_level": "Beginner",
+    "age_group": "General",
+    "what_they_know": "Knows the headline facts and dates from school, but not how events connected.",
+    "what_they_want": "Cause and consequence, human stakes, and a sense of why the past still matters."
+  },
+  "writing": {
+    "tone": "Measured, vivid and authoritative",
+    "style": "Documentary narration with strong narrative arcs",
+    "complexity": "Accessible but not dumbed down",
+    "humor": "Minimal",
+    "person": "third person with occasional direct address",
+    "avoid": [
+      "Presentism",
+      "Judgemental moralising",
+      "Invented quotes or invented personal details",
+      "Treating contested claims as settled fact",
+      "Modern-day analogies that flatten the historical context"
+    ],
+    "prefer": [
+      "Specific dates, places and material detail",
+      "Cause-and-effect chains",
+      "The human cost behind the political decision"
+    ]
+  },
+  "video": {
+    "long_duration_minutes": 12,
+    "shorts_count": 6,
+    "short_duration_seconds": 50,
+    "aspect_ratio_long": "16:9",
+    "aspect_ratio_short": "9:16",
+    "hook_style": "Open inside a decisive moment, then zoom out to the cause",
+    "ending_style": "Close on the legacy and what the modern world inherited"
+  },
+  "visuals": {
+    "style": "Cinematic documentary historical",
+    "primary_colors": ["Warm earth tones", "Muted gold", "Deep umber"],
+    "visual_preference": "Historically grounded realism with painterly depth",
+    "motion_style": "Slow, deliberate, parallax",
+    "lighting": "Natural directional light, candle and window sources, atmospheric haze",
+    "texture": "Film grain, aged patina, shallow depth of field",
+    "era_reference": "Late Imperial Rome, roughly 200-476 CE",
+    "avoid_visuals": [
+      "Modern objects or technology in historical scenes",
+      "Contemporary clothing, hairstyles or architecture",
+      "Modern national borders presented as ancient ones",
+      "Medieval armour, castle or costume motifs in a Roman setting"
+    ]
+  },
+  "audio": {
+    "music_style": "Orchestral strings with frame drums",
+    "sound_effect_style": "Period-appropriate ambience and material sounds",
+    "mixing_style": "Narration forward, score supporting emotional beats",
+    "energy": "Slow build, restrained tension, reflective resolution",
+    "notes": "Avoid modern percussion in historical segments."
+  },
+  "topics": {
+    "primary": [
+      "Ancient empires",
+      "Turning points in world history",
+      "Ideas and inventions that outlived their era"
+    ],
+    "avoid": [
+      "Graphic violence",
+      "Present-day political analogies presented as direct parallels"
+    ]
+  }
+}

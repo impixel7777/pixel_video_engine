@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "topic": "Why solid-state drives slow down when they fill up",
+  "central_message": "The speed of an SSD decreases as it fills up because of how NAND flash memory stores data, specifically due to write amplification and the need for more complex operations when the drive is nearly full.",
+  "target_audience": {
+    "description": "General audience with a beginner to intermediate knowledge level in technology. They use apps daily and follow tech news casually but don't fully understand the mechanisms behind technologies.",
+    "age_group": "General",
+    "goals": "To provide clear mental models they can explain to others, and to convey why they should care about SSD performance."
+  },
+  "angles": [
+    {
+      "title": "Understanding NAND Flash Memory",
+      "why_interesting": "Learn how data is stored in SSDs and why this storage method affects performance as the drive fills up.",
+      "key_questions": [
+        "What is NAND flash memory?",
+        "How does it differ from traditional hard drives?"
+      ],
+      "selected": true
+    },
+    {
+      "title": "Write Amplification Explained",
+      "why_interesting": "Discover how writing data to a nearly full SSD requires more operations, slowing it down.",
+      "key_questions": [
+        "What is write amplification?",
+        "Why does it happen when the drive is full?"
+      ]
+    },
+    {
+      "title": "The Impact of Fragmentation",
+      "why_interesting": "Explore how data fragmentation affects SSD performance and whether it's a concern for users.",
+      "key_questions": [
+        "Does fragmentation affect SSDs like traditional hard drives?",
+        "How can it be managed?"
+      ]
+    },
+    {
+      "title": "GC (Garbage Collection) Process",
+      "why_interesting": "Understand how SSDs manage free space and why this process becomes more resource-intensive as the drive fills up.",
+      "key_questions": [
+        "What is Garbage Collection in SSDs?",
+        "How does it affect speed?"
+      ]
+    },
+    {
+      "title": "Practical Tips for Maintaining SSD Speed",
+      "why_interesting": "Gain actionable advice on optimizing SSD performance to ensure faster and more reliable storage solutions.",
+      "key_questions": [
+        "What can users do to maintain SSD speed?",
+        "Are there specific practices or settings that help?"
+      ]
+    },
+    {
+      "title": "Future Innovations in Storage Technology",
+      "why_interesting": "Look ahead to emerging technologies that may address the limitations of current SSDs and improve performance as drives fill up.",
+      "key_questions": [
+        "What's next for SSD technology?",
+        "How might future innovations solve these speed issues?"
+      ]
+    }
+  ],
+  "key_questions": [
+    "Why does my SSD slow down when it's almost full?",
+    "Is there a way to prevent or reduce this slowdown?",
+    "How does SSD storage compare to traditional hard drives in terms of performance when full?"
+  ],
+  "misconceptions": [
+    {
+      "misconception": "SSD speed is not affected by the amount of free space.",
+      "correction": "SSD performance degrades as it fills up due to factors like write amplification and garbage collection."
+    },
+    {
+      "misconception": "Fragmentation affects SSDs in the same way it does HDDs.",
+      "correction": "While fragmentation exists in SSDs, it doesn't have the same negative impact as in traditional hard drives because SSDs don't need to physically move data like HDDs do."
+    },
+    {
+      "misconception": "Deleting files on an SSD doesn't free up space effectively.",
+      "correction": "Deleting files on an SSD frees up space immediately, but the drive's internal processes may still slow down if it's nearly full."
+    }
+  ],
+  "storytelling": {
+    "approach": "Use relatable analogies and scenarios to explain complex technical concepts. For example, comparing NAND flash memory to a library where books (data) are stored in specific sections (cells), and when the library gets crowded, it takes longer to find and replace books.",
+    "emotional_arc": [
+      "Curiosity piqued by the problem of slowdown",
+      "Understanding through simple analogies",
+      "Empowerment with practical solutions",
+      "Anticipation for future improvements"
+    ],
+    "viewer_experience": "The video should feel informative yet approachable, with a focus on making complex ideas accessible. The tone should be engaging and conversational, ensuring viewers feel confident in their understanding by the end."
+  },
+  "scope": {
+    "include": [
+      "Mechanics of NAND flash memory",
+      "Explanation of write amplification",
+      "Role of garbage collection in SSDs",
+      "Practical tips for maintaining SSD speed",
+      "Overview of future storage technologies"
+    ],
+    "exclude": [
+      "Detailed technical specifications of specific SSD models",
+      "In-depth discussion of TRIM commands or other low-level SSD features"
+    ]
+  },
+  "format": {
+    "long_form": {
+      "duration": "10 minutes",
+      "structure": [
+        "Hook: Open with a relatable scenario of an SSD slowing down",
+        "Introduction to NAND flash memory",
+        "Explanation of write amplification",
+        "Discussion on garbage collection",
+        "Practical tips for maintaining speed",
+        "Future innovations in storage technology",
+        "Conclusion: Return to the opening scenario and pose a question about the future of SSDs."
+      ]
+    },
+    "shorts": [
+      {
+        "title": "Why SSDs Slow Down When Full",
+        "duration": "45 seconds",
+        "content": "A concise explanation of the main reasons SSDs slow down when filled, using simple analogies and visuals."
+      },
+      {
+        "title": "Write Amplification: The Hidden Cost of Data Storage",
+        "duration": "45 seconds",
+        "content": "Explaining write amplification in simple terms and its impact on SSD performance."
+      },
+      {
+        "title": "Garbage Collection: Keeping Your SSD Fast",
+        "duration": "45 seconds",
+        "content": "What is garbage collection in SSDs and why it's crucial for maintaining speed."
+      },
+      {
+        "title": "How to Maintain SSD Speed",
+        "duration": "45 seconds",
+        "content": "Top tips for ensuring your SSD stays fast over time."
+      },
+      {
+        "title": "The Future of Storage Technology",
+        "duration": "45 seconds",
+        "content": "A glimpse into upcoming innovations that may solve current SSD limitations."
+      },
+      {
+        "title": "SSD Myths Debunked: Does Fragmentation Matter?",
+        "duration": "45 seconds",
+        "content": "Clearing up misconceptions about fragmentation and its impact on SSDs."
+      }
+    ]
+  },
+  "visual_style": {
+    "primary_colours": [
+      "Purple",
+      "Blue"
+    ],
+    "motion_style": "Dynamic but controlled",
+    "lighting": "Volumetric light with soft bloom, deep shadows",
+    "texture": "Subtle film grain, shallow depth of field"
+  },
+  "audio_style": {
+    "music": "Electronic ambient",
+    "sound_effects": "Subtle digital effects",
+    "mixing": "Clear narration with balanced background audio",
+    "energy_curve": "Builds from calm to confident"
+  },
+  "key_terms": []
+}

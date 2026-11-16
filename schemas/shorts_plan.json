@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/shorts_plan.json",
+  "title": "PIXEL AI Shorts Production Plan",
+  "description": "Machine-readable storyboards for every Short. Each Short has its own scene list anchored to its own narration.",
+  "type": "object",
+  "required": ["schema_version", "project", "shorts"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string"},
+    "project": {
+      "type": "object",
+      "required": ["profile_id", "topic", "slug"],
+      "additionalProperties": true,
+      "properties": {
+        "profile_id": {"type": "string"},
+        "topic": {"type": "string"},
+        "slug": {"type": "string"},
+        "aspect_ratio": {"type": "string"},
+        "shorts_count": {"type": "integer"}
+      }
+    },
+    "style_summary": {"type": "string"},
+    "shorts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["short_id", "title", "scenes", "audio_plan"],
+        "additionalProperties": true,
+        "properties": {
+          "short_id": {"type": "string", "pattern": "^[0-9]{2}$"},
+          "title": {"type": "string", "minLength": 2},
+          "target_duration_seconds": {"type": "number"},
+          "narration_word_count": {"type": "integer"},
+          "central_idea": {"type": "string"},
+          "scenes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "scene_id",
+                "block_id",
+                "narration",
+                "narration_start_char",
+                "narration_end_char",
+                "purpose",
+                "visual_description",
+                "image_prompt",
+                "motion",
+                "camera_movement",
+                "transition_out",
+                "estimated_duration_seconds",
+                "asset_type",
+                "visual_style"
+              ],
+              "additionalProperties": true,
+              "properties": {
+                "scene_id": {"type": "string", "pattern": "^[LS][0-9]{3}$"},
+                "block_id": {"type": "string"},
+                "origin": {"enum": ["narration", "coverage_insert"]},
+                "narration": {"type": "string"},
+                "narration_excerpt": {"type": "string"},
+                "narration_start_char": {"type": "integer", "minimum": 0},
+                "narration_end_char": {"type": "integer", "minimum": 0},
+                "purpose": {"type": "string"},
+                "visual_description": {"type": "string"},
+                "image_prompt": {"type": "string"},
+                "negative_prompt": {"type": "string"},
+                "video_prompt": {"type": "string"},
+                "motion": {"type": "string"},
+                "camera_movement": {"type": "string"},
+                "transition_in": {"type": "string"},
+                "transition_out": {"type": "string"},
+                "estimated_duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+                "asset_type": {
+                  "enum": [
+                    "ai_image",
+                    "ai_video",
+                    "stock_video",
+                    "motion_graphics",
+                    "text_overlay",
+                    "diagram"
+                  ]
+                },
+                "visual_style": {"type": "string"},
+                "on_screen_text": {"type": "string"},
+                "uncertainty_flags": {"type": "array", "items": {"type": "string"}},
+                "asset": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "asset_id": {"type": "string"},
+                    "status": {"enum": ["pending", "ready", "missing", "failed", "not_required"]},
+                    "path": {"type": ["string", "null"]},
+                    "provider": {"type": ["string", "null"]},
+                    "notes": {"type": "string"}
+                  }
+                }
+              }
+            }
+          },
+          "audio_plan": {
+            "type": "object",
+            "required": ["music", "sfx", "mix"],
+            "additionalProperties": true,
+            "properties": {
+              "music": {
+                "type": "object",
+                "required": ["style", "segments"],
+                "additionalProperties": true,
+                "properties": {
+                  "style": {"type": "string"},
+                  "overall_energy_curve": {"type": "string"},
+                  "segments": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["segment_id", "start_scene", "intensity", "mood", "description"],
+                      "additionalProperties": true,
+                      "properties": {
+                        "segment_id": {"type": "string"},
+                        "start_scene": {"type": "string"},
+                        "end_scene": {"type": "string"},
+                        "intensity": {"type": "number", "minimum": 0, "maximum": 1},
+                        "mood": {"type": "string"},
+                        "description": {"type": "string"},
+                        "transition": {"type": "string"},
+                        "fade_in_seconds": {"type": "number"},
+                        "fade_out_seconds": {"type": "number"}
+                      }
+                    }
+                  }
+                }
+              },
+              "sfx": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["cue_id", "anchor_scene", "description", "timing", "gain_db"],
+                  "additionalProperties": true,
+                  "properties": {
+                    "cue_id": {"type": "string"},
+                    "anchor_scene": {"type": "string"},
+                    "anchor_text": {"type": "string"},
+                    "description": {"type": "string"},
+                    "timing": {"type": "string"},
+                    "gain_db": {"type": "number"},
+                    "duration_seconds": {"type": "number"},
+                    "relevance": {"type": "string"}
+                  }
+                }
+              },
+              "pauses": {"type": "array", "items": {"type": "object"}},
+              "mix": {
+                "type": "object",
+                "required": ["narration_priority"],
+                "additionalProperties": true,
+                "properties": {
+                  "narration_priority": {"type": "string"},
+                  "music_bed_db": {"type": "number"},
+                  "duck_under_narration_db": {"type": "number"},
+                  "true_peak_db": {"type": "number"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

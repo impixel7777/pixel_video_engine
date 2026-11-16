@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/scene_direction.json",
+  "title": "PIXEL AI Scene Direction batch",
+  "description": "The exact JSON shape DeepSeek must return for one batch of narration blocks. Python owns narration text, IDs, offsets and durations; the model only supplies creative direction.",
+  "type": "object",
+  "required": ["scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "purpose",
+          "visual_description",
+          "image_prompt",
+          "motion",
+          "camera_movement",
+          "transition_out",
+          "asset_type",
+          "visual_style"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {"type": "string"},
+          "purpose": {"type": "string", "minLength": 3},
+          "visual_description": {"type": "string", "minLength": 15},
+          "image_prompt": {"type": "string", "minLength": 20},
+          "negative_prompt": {"type": "string"},
+          "video_prompt": {"type": "string"},
+          "motion": {"type": "string"},
+          "camera_movement": {"type": "string"},
+          "transition_out": {"type": "string"},
+          "asset_type": {
+            "enum": [
+              "ai_image",
+              "ai_video",
+              "stock_video",
+              "motion_graphics",
+              "text_overlay",
+              "diagram"
+            ]
+          },
+          "visual_style": {"type": "string", "minLength": 3},
+          "on_screen_text": {"type": "string"},
+          "uncertainty_flags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

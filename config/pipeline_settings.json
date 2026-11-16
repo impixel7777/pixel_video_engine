@@ -1,0 +1,96 @@
+{
+  "_comment": "Pipeline behaviour configuration. Stage level overrides live in engine/pipeline.py; this file holds global knobs.",
+
+  "paths": {
+    "scripts_dir": "scripts",
+    "output_dir": "output",
+    "logs_dir": "logs",
+    "assets_subdir": "assets"
+  },
+
+  "execution": {
+    "require_approval_after_script": true,
+    "max_stage_retries": 2,
+    "continue_on_stage_failure": false,
+    "write_stage_artifacts": true,
+    "keep_reasoning_logs": false
+  },
+
+  "script": {
+    "words_per_minute": 150,
+    "long_min_words": 900,
+    "long_max_words": 2200,
+    "short_target_words": 105,
+    "short_max_words": 145,
+    "shorts_heading_prefix": "SHORT",
+    "shorts_heading_separator": "\u2014"
+  },
+
+  "research": {
+    "provider": "none",
+    "_comment_provider": "'none' = no research backend configured. Other keys map to providers/research/*.py. Never fabricate sources.",
+    "max_results_per_query": 6,
+    "max_queries": 6,
+    "summary_chars": 1200,
+    "source_chars": 700
+  },
+
+  "visuals": {
+    "scene_target_sentences": 3,
+    "scene_target_words": 70,
+    "max_scenes_long": 60,
+    "max_scenes_per_short": 6,
+    "batch_size": 3,
+    "variety_pass": true,
+    "max_variety_repair_rounds": 2
+  },
+
+  "audio": {
+    "music_segments_max": 14,
+    "sfx_max": 24,
+    "narration_duck_db": -9.0,
+    "music_bed_db": -22.0,
+    "music_fade_in_seconds": 2.0,
+    "music_fade_out_seconds": 3.0
+  },
+
+  "tts": {
+    "_comment": "Internal Kokoro contract. Do not change defaults without updating the TTS compatibility tests.",
+    "enabled": true,
+    "voice": "am_liam",
+    "speed": 1.25,
+    "device": "cpu",
+    "sample_rate": 24000,
+    "lang_code": "a"
+  },
+
+  "assets": {
+    "image_provider": "none",
+    "video_provider": "none",
+    "sfx_provider": "none",
+    "music_provider": "none",
+    "download_timeout_seconds": 120
+  },
+
+  "video": {
+    "ffmpeg_path": "C:\\ffmpeg\\bin\\ffmpeg.exe",
+    "ffprobe_path": "C:\\ffmpeg\\bin\\ffprobe.exe",
+    "long_width": 1920,
+    "long_height": 1080,
+    "long_fps": 30,
+    "short_width": 1080,
+    "short_height": 1920,
+    "short_fps": 30,
+    "font_path": "C:\\Windows\\Fonts\\arial.ttf",
+    "render": false,
+    "_comment_render": "Rendering stays off until real assets exist. The assembler refuses to fabricate missing assets."
+  },
+
+  "quality": {
+    "ai_review": true,
+    "ai_review_can_fail": false,
+    "fail_on": "error",
+    "_comment_fail_on": "'error' | 'warning' | 'never' - deterministic threshold that blocks downstream production.",
+    "_comment_ai_review_can_fail": "Editorial AI findings are advisory unless this is true; deterministic checks are always authoritative."
+  }
+}

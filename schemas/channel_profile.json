@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/channel_profile.json",
+  "title": "PIXEL AI Channel Profile",
+  "description": "Identity and production rules for one YouTube channel. One file per channel under profiles/.",
+  "type": "object",
+  "required": ["channel", "audience", "writing", "video", "visuals", "audio"],
+  "additionalProperties": true,
+  "properties": {
+    "channel": {
+      "type": "object",
+      "required": ["id", "name", "category", "language", "description"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_]{2,40}$"},
+        "name": {"type": "string", "minLength": 2},
+        "category": {"type": "string", "minLength": 2},
+        "language": {"type": "string", "minLength": 2},
+        "description": {"type": "string", "minLength": 10},
+        "tagline": {"type": "string"}
+      }
+    },
+    "audience": {
+      "type": "object",
+      "required": ["type", "knowledge_level", "age_group"],
+      "additionalProperties": true,
+      "properties": {
+        "type": {"type": "string", "minLength": 2},
+        "knowledge_level": {"type": "string", "minLength": 2},
+        "age_group": {"type": "string", "minLength": 2},
+        "what_they_know": {"type": "string"},
+        "what_they_want": {"type": "string"}
+      }
+    },
+    "writing": {
+      "type": "object",
+      "required": ["tone", "style", "complexity", "humor", "avoid"],
+      "additionalProperties": true,
+      "properties": {
+        "tone": {"type": "string", "minLength": 2},
+        "style": {"type": "string", "minLength": 2},
+        "complexity": {"type": "string", "minLength": 2},
+        "humor": {"type": "string"},
+        "person": {"type": "string"},
+        "avoid": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "prefer": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "video": {
+      "type": "object",
+      "required": [
+        "long_duration_minutes",
+        "shorts_count",
+        "short_duration_seconds",
+        "aspect_ratio_long",
+        "aspect_ratio_short"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "long_duration_minutes": {"type": "integer", "minimum": 1, "maximum": 120},
+        "shorts_count": {"type": "integer", "minimum": 1, "maximum": 20},
+        "short_duration_seconds": {"type": "integer", "minimum": 5, "maximum": 180},
+        "aspect_ratio_long": {"type": "string", "pattern": "^[0-9]{1,2}:[0-9]{1,2}$"},
+        "aspect_ratio_short": {"type": "string", "pattern": "^[0-9]{1,2}:[0-9]{1,2}$"},
+        "hook_style": {"type": "string"},
+        "ending_style": {"type": "string"}
+      }
+    },
+    "visuals": {
+      "type": "object",
+      "required": ["style", "primary_colors", "visual_preference", "motion_style"],
+      "additionalProperties": true,
+      "properties": {
+        "style": {"type": "string", "minLength": 2},
+        "primary_colors": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "visual_preference": {"type": "string"},
+        "motion_style": {"type": "string"},
+        "lighting": {"type": "string"},
+        "texture": {"type": "string"},
+        "era_reference": {"type": "string"},
+        "avoid_visuals": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["music_style", "sound_effect_style", "mixing_style"],
+      "additionalProperties": true,
+      "properties": {
+        "music_style": {"type": "string", "minLength": 2},
+        "sound_effect_style": {"type": "string", "minLength": 2},
+        "mixing_style": {"type": "string", "minLength": 2},
+        "energy": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "topics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "primary": {"type": "array", "items": {"type": "string"}},
+        "avoid": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/quality_review.json",
+  "title": "PIXEL AI editorial review by DeepSeek",
+  "description": "The AI half of the quality controller. Deterministic checks run separately in Python; this covers judgement calls only.",
+  "type": "object",
+  "required": [
+    "overall_assessment",
+    "research_issues",
+    "script_issues",
+    "shorts_issues",
+    "accuracy_concerns",
+    "recommended_fixes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "overall_assessment": {"type": "string", "minLength": 20},
+    "verdict": {"enum": ["pass", "needs_work", "fail"]},
+    "research_issues": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "script_issues": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "shorts_issues": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "accuracy_concerns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/issue"}
+    },
+    "recommended_fixes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "required": ["severity", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "severity": {"enum": ["error", "warning", "info"]},
+        "message": {"type": "string", "minLength": 8},
+        "location": {"type": "string"},
+        "suggested_fix": {"type": "string"}
+      }
+    }
+  }
+}

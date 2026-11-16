@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/section_script.json",
+  "title": "One long-form script section",
+  "description": "Returned by DeepSeek for each outline section. Python assembles these into Long.txt. Narration only: no headings, no scene directions, no metadata.",
+  "type": "object",
+  "required": ["section_id", "narration"],
+  "additionalProperties": false,
+  "properties": {
+    "section_id": {"type": "string", "pattern": "^[A-Z]{1,2}[0-9]{1,2}$"},
+    "narration": {"type": "string", "minLength": 80},
+    "summary_for_continuity": {
+      "type": "string",
+      "description": "One or two sentences summarising what this section established, used to keep the next section coherent."
+    }
+  }
+}

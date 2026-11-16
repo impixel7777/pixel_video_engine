@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/shorts_script.json",
+  "title": "Shorts narration batch",
+  "description": "Returned by DeepSeek when writing Shorts. Python renders these into Short.txt using the exact SHORT NN - Title heading format the Kokoro parser expects.",
+  "type": "object",
+  "required": ["shorts"],
+  "additionalProperties": false,
+  "properties": {
+    "shorts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["index", "title", "narration"],
+        "additionalProperties": false,
+        "properties": {
+          "index": {"type": "integer", "minimum": 1, "maximum": 20},
+          "title": {"type": "string", "minLength": 3, "maxLength": 60},
+          "central_idea": {"type": "string"},
+          "narration": {"type": "string", "minLength": 80}
+        }
+      }
+    }
+  }
+}

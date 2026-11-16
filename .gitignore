@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+logs/
+output/
+*.wav
+*.mp3
+*.mp4
+*.mkv
+*.gguf
+models/

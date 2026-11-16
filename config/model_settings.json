@@ -1,0 +1,58 @@
+{
+  "_comment": "Central configuration for the local DeepSeek (llama.cpp) inference server. Never hardcode these values in engine code.",
+
+  "provider": "llama_cpp_openai",
+  "base_url": "http://127.0.0.1:8080/v1",
+  "model": "local-model",
+  "api_key_env": "PIXEL_AI_API_KEY",
+  "api_key": null,
+
+  "server": {
+    "executable": "C:\\Users\\pixel\\Desktop\\pixel-tts\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+    "model_path": "C:\\DeepSeek-R1-Distill-Qwen-14B-Q8_0\\DeepSeek-R1-Distill-Qwen-14B-Q8_0.gguf",
+    "host": "127.0.0.1",
+    "port": 8080,
+
+    "context_size": 8192,
+    "_comment_context_size": "Fallback only. The live value is auto-detected from GET /props and shown by --doctor. 1024 is NOT enough for a reasoning model: the model spends the whole window thinking and never answers.",
+
+    "gpu_layers": 16,
+    "cpu_threads": 6,
+    "batch_size": 128,
+    "ubatch_size": 64,
+    "parallel_slots": 1,
+    "flash_attention": "auto",
+    "reasoning_budget": 0,
+    "_comment_reasoning_budget": "SERVER-SIDE ONLY. Passed as --reasoning-budget when starting llama-server. 0 disables DeepSeek-R1 chain-of-thought, which is required on this hardware: at 0 reasoning the model answers directly at the same speed but stops wasting the whole token budget on hidden thought. Per-request values are ignored by llama.cpp.",
+
+    "auto_start": false,
+    "_comment_auto_start": "The app never launches llama-server automatically unless this is true. It always probes the base_url first."
+  },
+
+  "request": {
+    "timeout_seconds": 1800,
+    "_comment_timeout": "Generous because a 14B Q8 model runs at ~2.3 tokens/second on this machine.",
+    "connect_timeout_seconds": 10,
+    "max_retries": 3,
+    "retry_backoff_seconds": 4.0,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "repeat_penalty": 1.05,
+    "max_tokens": 4096,
+    "keep_alive_seconds": 120
+  },
+
+  "json": {
+    "use_response_format": true,
+    "max_repair_attempts": 2,
+    "strict_schema": true
+  },
+
+  "reasoning": {
+    "_comment": "DeepSeek-R1 style models may emit <think> blocks or a separate reasoning_content field. Both are stripped and never written into narration or production files.",
+    "strip_think_tags": true,
+    "drop_reasoning_content_field": true,
+    "min_context_tokens": 4096,
+    "_comment_min_context": "The doctor command warns below this value."
+  }
+}

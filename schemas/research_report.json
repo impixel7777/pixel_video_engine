@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/research_report.json",
+  "title": "PIXEL AI Research Report",
+  "description": "Stage 2 output. Merges provider-collected sources with DeepSeek analysis. Never fabricates sources: when no provider is configured research_status must be 'unavailable'.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "topic",
+    "research_status",
+    "provider",
+    "sources",
+    "verified_facts",
+    "uncertain_claims",
+    "statistics",
+    "conflicts",
+    "missing_evidence",
+    "guidance_for_script"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "topic": {"type": "string"},
+    "collected_at": {"type": "string"},
+    "research_status": {
+      "enum": ["available", "partial", "unavailable"],
+      "description": "available = sources collected; partial = some sources or degraded provider; unavailable = no external research backend."
+    },
+    "provider": {
+      "type": "object",
+      "required": ["name", "configured"],
+      "additionalProperties": true,
+      "properties": {
+        "name": {"type": "string"},
+        "configured": {"type": "boolean"},
+        "notes": {"type": "string"},
+        "error": {"type": ["string", "null"]}
+      }
+    },
+    "queries": {"type": "array", "items": {"type": "string"}},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "title", "provider"],
+        "additionalProperties": true,
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^S[0-9]+$"},
+          "title": {"type": "string"},
+          "url": {"type": ["string", "null"]},
+          "publication_date": {"type": ["string", "null"]},
+          "provider": {"type": "string"},
+          "extract": {"type": "string"},
+          "retrieved_at": {"type": "string"}
+        }
+      }
+    },
+    "verified_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact", "confidence"],
+        "additionalProperties": true,
+        "properties": {
+          "fact": {"type": "string"},
+          "source_ids": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"enum": ["high", "medium", "low"]},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "uncertain_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "why_uncertain"],
+        "additionalProperties": true,
+        "properties": {
+          "claim": {"type": "string"},
+          "why_uncertain": {"type": "string"},
+          "source_ids": {"type": "array", "items": {"type": "string"}},
+          "verification_needed": {"type": "string"}
+        }
+      }
+    },
+    "statistics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["statistic", "value"],
+        "additionalProperties": true,
+        "properties": {
+          "statistic": {"type": "string"},
+          "value": {"type": "string"},
+          "as_of": {"type": ["string", "null"]},
+          "source_ids": {"type": "array", "items": {"type": "string"}},
+          "caveats": {"type": "string"},
+          "verified": {"type": "boolean"}
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topic", "positions", "assessment"],
+        "additionalProperties": true,
+        "properties": {
+          "topic": {"type": "string"},
+          "positions": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+          "assessment": {"type": "string"}
+        }
+      }
+    },
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "outdated_risks": {"type": "array", "items": {"type": "string"}},
+    "internal_knowledge_notes": {"type": "array", "items": {"type": "string"}},
+    "guidance_for_script": {
+      "type": "object",
+      "required": ["safe_to_state", "state_with_hedging", "avoid"],
+      "additionalProperties": true,
+      "properties": {
+        "safe_to_state": {"type": "array", "items": {"type": "string"}},
+        "state_with_hedging": {"type": "array", "items": {"type": "string"}},
+        "avoid": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "key_takeaways": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "topic": "Why solid-state drives slow down when they fill up",
+  "research_status": "unavailable",
+  "provider": {
+    "name": "none",
+    "configured": false,
+    "notes": "No research provider is configured. Set research.provider in config/pipeline_settings.json to 'tavily', 'serper' or 'custom_http', and put the API key in the environment variable named in providers/research/web_search.py. Until then Research.json is marked research_status=unavailable and the script may only use hedged, well-established background knowledge.",
+    "error": null
+  },
+  "sources": [],
+  "verified_facts": [
+    {
+      "fact": "Solid-state drives (SSDs) use NAND flash memory to store data.",
+      "confidence": "low",
+      "notes": "No external source collected. Treat as general background only.",
+      "source_ids": []
+    }
+  ],
+  "uncertain_claims": [
+    {
+      "claim": "The speed of an SSD decreases as it fills up due to write amplification and more complex operations when nearly full.",
+      "why_uncertain": "No specific sources were used to verify the exact mechanisms, so this is based on general knowledge about SSDs.",
+      "source_ids": []
+    }
+  ],
+  "statistics": [],
+  "conflicts": [],
+  "missing_evidence": [
+    "Detailed explanation of write amplification and its impact on SSD performance.",
+    "Specific examples of complex operations when SSDs are full."
+  ],
+  "guidance_for_script": {
+    "safe_to_state": [
+      "SSDs use NAND flash memory.",
+      "SSD speed can decrease when filled up."
+    ],
+    "state_with_hedging": [
+      "The decrease in speed is due to factors like write amplification and more complex operations when the drive is nearly full."
+    ],
+    "avoid": [
+      "Any specific statistic, percentage or dollar figure",
+      "Any claim that requires a citation the script cannot provide"
+    ]
+  },
+  "internal_knowledge_notes": [
+    "Write amplification refers to the process where data is written multiple times during operations, increasing wear on the SSD.",
+    "When an SSD is full, it has less free space for efficient data management, leading to slower performance."
+  ],
+  "outdated_risks ": [],
+  "submission_notes": "Due to unavailable research status, the analysis is based on general knowledge and mechanisms rather than specific sources. The script should focus on explaining the process in an engaging and conversational manner without presenting unverified statistics.",
+  "collected_at": "2026-11-16T06:59:04+00:00",
+  "queries": [
+    "Why solid-state drives slow down when they fill up",
+    "Why does my SSD slow down when it's almost full",
+    "Is there a way to prevent or reduce this slowdown",
+    "How does SSD storage compare to traditional hard drives in terms of performance when full"
+  ]
+}

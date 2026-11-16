@@ -1,0 +1,76 @@
+{
+  "channel": {
+    "id": "pixel_science",
+    "name": "Pixel Science",
+    "category": "Science",
+    "language": "English",
+    "description": "Science explained with precision and wonder: space, physics, biology and the natural world.",
+    "tagline": "Science for people who never stopped asking why."
+  },
+  "audience": {
+    "type": "Science-curious general audience",
+    "knowledge_level": "Beginner to intermediate",
+    "age_group": "General",
+    "what_they_know": "Remembers school science but not the vocabulary; loves scale and extremes.",
+    "what_they_want": "The mechanism behind the fact, and a sense of how big or small it really is."
+  },
+  "writing": {
+    "tone": "Curious, precise and quietly enthusiastic",
+    "style": "Explanation driven by scale, comparison and surprise",
+    "complexity": "Clear but not simplified beyond accuracy",
+    "humor": "Occasional, dry",
+    "person": "first person plural with direct questions",
+    "avoid": [
+      "Precise-sounding numbers that no source supports",
+      "False balance between scientific consensus and fringe belief",
+      "Overstating certainty",
+      "Anthropomorphism that misleads"
+    ],
+    "prefer": [
+      "Scale comparisons the viewer can picture",
+      "Naming the mechanism, not just the effect",
+      "Explicitly flagging uncertainty and data quality"
+    ]
+  },
+  "video": {
+    "long_duration_minutes": 11,
+    "shorts_count": 5,
+    "short_duration_seconds": 45,
+    "aspect_ratio_long": "16:9",
+    "aspect_ratio_short": "9:16",
+    "hook_style": "Open with a scale shock, then reveal the mechanism",
+    "ending_style": "Return to the opening comparison and update the viewer's mental model"
+  },
+  "visuals": {
+    "style": "Photorealistic scientific visualization",
+    "primary_colors": ["Deep blue", "Teal", "Ember orange"],
+    "visual_preference": "High-detail realism with accurate scale",
+    "motion_style": "Smooth orbital camera moves and slow rotations",
+    "lighting": "High dynamic range, single dominant key light, deep but readable shadows",
+    "texture": "Fine particulate detail, realistic lens behaviour, no plastic sheen",
+    "avoid_visuals": [
+      "Space scenes where objects are implausibly close together",
+      "Anatomical imagery that is not anatomically plausible",
+      "Diagram text that is unreadable at phone size"
+    ]
+  },
+  "audio": {
+    "music_style": "Ambient synth with sub-bass swells",
+    "sound_effect_style": "Realistic foley and low-frequency texture",
+    "mixing_style": "Narration forward, wide but restrained sound bed",
+    "energy": "Wonder and tension, never frantic",
+    "notes": "Use silence deliberately before a key reveal."
+  },
+  "topics": {
+    "primary": [
+      "Astronomy and space",
+      "Physics of everyday phenomena",
+      "Biology and medicine",
+      "Earth science and climate"
+    ],
+    "avoid": [
+      "Medical advice",
+      "Doomsday framing without evidence"
+    ]
+  }
+}

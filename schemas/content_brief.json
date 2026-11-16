@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixel.ai/schemas/content_brief.json",
+  "title": "PIXEL AI Content Brief",
+  "description": "Stage 1 output: understanding of the topic before any research or scripting.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "topic",
+    "central_message",
+    "target_audience",
+    "angles",
+    "key_questions",
+    "misconceptions",
+    "storytelling",
+    "scope"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "topic": {"type": "string", "minLength": 3},
+    "working_title": {"type": "string"},
+    "central_message": {"type": "string", "minLength": 20},
+    "viewer_promise": {"type": "string", "minLength": 20},
+    "target_audience": {
+      "type": "object",
+      "required": ["description"],
+      "additionalProperties": true,
+      "properties": {
+        "description": {"type": "string"},
+        "prior_knowledge": {"type": "array", "items": {"type": "string"}},
+        "pain_points": {"type": "array", "items": {"type": "string"}},
+        "desired_outcome": {"type": "string"}
+      }
+    },
+    "angles": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["title", "why_interesting"],
+        "additionalProperties": true,
+        "properties": {
+          "title": {"type": "string"},
+          "why_interesting": {"type": "string"},
+          "selected": {"type": "boolean"}
+        }
+      }
+    },
+    "key_questions": {
+      "type": "array",
+      "minItems": 3,
+      "items": {"type": "string"}
+    },
+    "misconceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["misconception", "correction"],
+        "additionalProperties": true,
+        "properties": {
+          "misconception": {"type": "string"},
+          "correction": {"type": "string"}
+        }
+      }
+    },
+    "storytelling": {
+      "type": "object",
+      "required": ["approach", "emotional_arc", "viewer_experience"],
+      "additionalProperties": true,
+      "properties": {
+        "approach": {"type": "string"},
+        "structure_rationale": {"type": "string"},
+        "emotional_arc": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+        "viewer_experience": {"type": "string"}
+      }
+    },
+    "key_terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["term", "plain_explanation"],
+        "additionalProperties": true,
+        "properties": {
+          "term": {"type": "string"},
+          "plain_explanation": {"type": "string"}
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": ["include", "exclude"],
+      "additionalProperties": true,
+      "properties": {
+        "include": {"type": "array", "items": {"type": "string"}},
+        "exclude": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "success_criteria": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "string"}}
+  }
+}
